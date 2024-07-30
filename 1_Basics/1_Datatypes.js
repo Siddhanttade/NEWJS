@@ -7,4 +7,5 @@
 //bigint
 
 // typeof null=Object
+
 // typeof undefined=undefined
