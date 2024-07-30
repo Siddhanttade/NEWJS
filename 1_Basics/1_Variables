@@ -10,5 +10,9 @@ accountMail="sumit@gmail.com"
 accountUser="Sumit"
 accountCity="Kolkata"
 
+/*
+prefer not using var because of issue in block scope and functional scope
+*/
+
 console.table([accountMail,accountUser,accountCity,accountState]);
 
