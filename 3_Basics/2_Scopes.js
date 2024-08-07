@@ -37,6 +37,7 @@ if(true){
 }
 //console.log(username)     same case with username variable
 
+//Important 
 //both of these are ways to declare function
 console.log(add1(5))
 function add1(num){
