@@ -13,8 +13,27 @@
 </head>
 <body>
     <div class="bg-black">
-        <h1 id="title" class="heading">DOM Learning</h1>
+        <!-- if we use title.innerText we get DOM Learning. If we use title.textContent then we get content from the span as well though its display property is set to none.If we use title.innerHTML it gives all the insights like the HTML tags as well
+         output
+         title.innerText=>'DOM Learning'
+         title.innerHTML=>'DOM Learning<span style="display: none;">test text</span>'
+         title.textContent=> 'DOM Learningtest text'-->
+        <h1 id="title" class="heading">DOM Learning<span style="display: none;">test text</span></h1>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia eum aut, nemo voluptas repudiandae ullam odio iste voluptatem accusamus eius molestias est accusantium aliquid deserunt praesentium ut consectetur corrupti architecto!</p>
+        <input type="password" name="sid" id="19">
+        <ul>
+        <li class="list-item">1</li>
+        <li class="list-item">2</li>
+        <li class="list-item">3</li>
+        <li class="list-item">4</li>
+        </ul>
+        <!-- nodelist and html collection are not the pure form of array beacause they dont have the properties of array like map -->
+        <!-- query selector and querySelectorAll differ from each other because of the datatype they return -->
+        <!-- in querySelectorAll we need to use indexing because we work on nodelist -->
+        <!-- some outputs
+        templiList.style.color='green'=>error
+        templiList[0].style.color='green'=>colors the required element to green  we need this command even if we have only one element in nodelist-->
+        <!-- on nodelist try to use forEach loop because it isnt an array an we cant use map there -->
     </div>
-</body>
+</body> 
 </html>
