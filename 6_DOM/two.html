@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulations</title>
+</head>
+<body style="background-color: black;color: aliceblue;" >
+    <div class="parent"> linebreak
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursdayfff</div>
+    </div>
+</body>
+<script>
+    const parent=document.querySelector('.parent')
+    // console.log(parent);  tells about parent
+    // console.log(parent.children);    tells about children of the parent
+    // console.log(parent.children[1].innerText);  tells about the children of the parent at that particular index
+    
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML)
+        
+    }
+    parent.children[1].style.color="orange"
+
+    // console.log(parent.firstElementChild); gives the first child associated with parents
+    // console.log(parent.lastElementChild);  gives the last child associated with parents
+    
+    const day1=document.querySelector('.day')
+    // console.log(day1);
+    // console.log(day1.parentElement); tells about parent
+    // console.log(day1.nextSibling); tells us about neighbouring child
+    console.log("Nodes:", parent.childNodes); //here we would get a nodelist of 9 element because there are 4 days arranged in tree form and the nextline(linebreak) is also considered as an element but an empty linebreak isnt considered
+    
+    
+    
+    
+    
+</script>
+</html>
