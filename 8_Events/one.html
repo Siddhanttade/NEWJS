@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+   <script>
+    // document.getElementById('owl').onclick=function(){ this is not the proper way to write the code because onclick can have somme problems and no detail info is present instead event listener give the ability for propogation
+    //     alert('owl')
+    // }
+    //Methods used earlier
+    //attachEvent()
+    //jQuery-on
+    //false is default present
+    //imp events
+    //target,timeStamp,type,preventDefault
+    //toElement,srcElement,currentTarget
+    //clentX,clientY,screenX,screenY
+    //altKey,ctrlKey,shiftKey,keyCode
+
+    //CONTEXTS OF EVENT PROPOGATION
+
+    //EVENT BUBBLING bottom to top means if i click inside ul then it will print clicked inside ul but if owl is clicked then owl clicked will be printed first an then clicked in ul
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log('clicked in ul')      
+    // },false)
+
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log('owl clicked')
+    //     e.stopPropogation()  it stops the bubbling of event
+    // },false)
+
+    //EVENT CAPTURING top to bottom if owl is clicked firstly i would get clicked inside ul and then owl is clicked
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log('clicked in ul')
+    // },true)
+
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //     console.log('owl clicked')
+    // },true)
+
+    // //preventDefault()
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     console.log("google clicked")
+    // },false)
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log(e.target.parentNode); //here we are selcting parent node because it would remove whole element with bullets but if we click on li because its parent is ul then whole of it disappears solution
+        console.log(e.target.tagName);
+        if(e.target.tagName="IMG"){
+            console.log(e.target.id);
+            let removeIt=e.target.parentNode
+            removeIt.remove()         
+        }
+               
+        //removeIt.parentNode.removeChild(removeIt) 1st i get li then ul then child of ul then it is removed
+    })
+
+   </script>
+</body>
