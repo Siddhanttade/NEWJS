@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Siddhant</h1>
+    <button id="start">start</button>
+
+    <button id="stop">stop</button>
+</body>
+<script>
+    // const sayDate=function(){
+    //     console.log("siddhant",Date.now());
+        
+    // }
+    // const sayDate=function(str){ //parameter can also be passed
+    //     console.log(str,Date.now());
+        
+    // }
+
+
+    // const interId=setInterval(sayDate,1000,"hii")
+
+    // clearInterval(interId)
+
+    //Use of start and stop button to print
+    let intervalId; // Declare a variable to hold the interval ID
+
+    const startPrint = function() {
+    console.log("siddhant", Date.now());
+    }
+
+    document.querySelector("#start").addEventListener('click', function() {
+    // Start the interval and store the interval ID
+    if (!intervalId) {  // Check if it's already running
+        intervalId = setInterval(startPrint, 1000);
+    }
+    });
+
+    document.querySelector("#stop").addEventListener('click', function() {
+    // Clear the interval using the stored interval ID
+    if (intervalId) { // Check if it's running
+        clearInterval(intervalId);
+        intervalId = null; // Reset the interval ID
+        console.log('Interval stopped');
+    }
+    });
+
+    
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Siddhant</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    const saySid=function(){
+        console.log("siddhant")
+    }
+
+    const changeText=function(){
+        document.querySelector('h1').innerHTML='best js series'
+    }
+
+    const changeMe=setTimeout(changeText,2000) //just give the reference dont execute the function
+
+    document.querySelector("#stop").addEventListener('click',function(){
+        clearTimeout(changeMe) //it removes particular timeout function when the reference is passed in it
+        console.log("stopped")
+    })
+</script>
+</html>
