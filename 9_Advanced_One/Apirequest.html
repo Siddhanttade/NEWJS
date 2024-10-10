@@ -1,0 +1,39 @@
+<!-- XML HTTP Request -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body style="background-color: #212121;">
+    0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+<button>Information</button>
+ </body>
+ <script>
+    const requestUrl="https://api.github.com/users/hiteshchoudhary"
+    const requestImage="https://avatars.githubusercontent.com/u/11613311?v=4"
+
+    const image=new XMLHttpRequest()
+    image.open("GET",requestImage)
+    image.onreadystatechange=function()
+     
+    // const xhr=new XMLHttpRequest() //XMLHttpRequest is a method through which you can send req and recieve info here we're creating an object
+    // xhr.open("GET",requestUrl)//here state is open and we have sent a get request on the requestURL
+    // xhr.onreadystatechange=function(){ //onreadystatechange=>It accepts a function that when the state changes what needs to be done
+    //     console.log(xhr.readyState);//readyState=>current state
+    //     if(xhr.readyState===4){
+    //         const data=JSON.parse(this.responseText) //Most of the times the data coming from request is in the form of string so to convert it into number we have done this.This is JSON data we cant directly write object.parse
+    //         console.log(data);
+            
+    //         console.log(typeof data);
+    //         console.log(data.followers);           
+    //     }    
+    // }
+    // xhr.send()
+ </script>
+ </html>

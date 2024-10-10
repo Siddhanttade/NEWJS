@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub User Info</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #infoButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #infoButton:hover {
+            background-color: #0056b3;
+        }
+        .card {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <button id="infoButton">Get Information</button>
+    <div id="userInfo"></div>
+
+    <script>
+        const requestUrl = "https://api.github.com/users/hiteshchoudhary";
+
+        document.getElementById('infoButton').addEventListener('click', function() {
+            const request = new XMLHttpRequest();
+            request.open("GET", requestUrl);
+            request.onreadystatechange = function() {
+                if (request.readyState === 4 && request.status === 200) {
+                    const user = JSON.parse(request.responseText);
+                    displayUserInfo(user);
+                } else if (request.readyState === 4) {
+                    console.error('Error fetching data:', request.statusText);
+                }
+            };
+            request.send();
+        });
+
+        function displayUserInfo(user) {
+            const userInfoDiv = document.getElementById('userInfo');
+            userInfoDiv.innerHTML = `
+                <div class="card">
+                    <img src="${user.avatar_url}" alt="Avatar">
+                    <h3>${user.login}</h3>
+                    <p>Followers: ${user.followers}</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
