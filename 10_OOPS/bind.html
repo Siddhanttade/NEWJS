@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<script>
+    class React{
+        constructor(){
+            this.library="React"
+            this.server="https://localhost:3000"
+
+            //requirement we want reference of button onclick and something displayed
+            document
+                .querySelector('button')
+                .addEventListener('click',this.handleClick
+                .bind(this))
+
+        }
+        handleClick(){
+            console.log("button clicked");
+            console.log(this);       //here it will have the reference of (this) new ref of (this) would get bind with the above constructor   if the ref is totally new then it would be problematic because it wouldn't know about button  
+            console.log(this.server);
+            
+        }   
+    }
+    const app=new React()
+</script>
+</html>
