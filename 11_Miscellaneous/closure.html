@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="orange">orange</button>
+    <button id="green">green</button>
+
+</body>
+    <script>
+    // function init() {
+    //     let name = "Mozilla"; 
+    //     function displayName() {
+    //     console.log(name); 
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+
+    //lexical closure=> inner function can access outer function variable and memory reserved
+    //parent function outer gives the properties and variable to inner and inner2 but the property"secret" in inner function isn't shared with inner2 and similarly outer can't have acces to "secret" parent can give property but child can't
+    // function outer(){
+    //     let username="sid"
+    //     console.log(secret);
+         
+    //     function inner(){
+    //         let secret="123"
+    //         console.log("too inner",username);
+    //     }
+    //     function inner2(){
+    //         console.log("2 inner",username);
+    //         console.log(secret);
+            
+    //     }
+    //     inner()
+    //     inner2()
+
+    // }
+    // outer()
+    // console.log("too outer",username);
+
+    //CLOSURE=>if the reference is passed as return then memory comes into place steps makeFunc()=>return displayName=>pushes to function not only the executional context
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+        function clickHandler(color ){
+            return function(){
+                document.body.style.backgroundColor=`${color}`
+        }
+    }
+    document.getElementById('orange').onclick=clickHandler("orange")
+    document.getElementById('green').onclick=clickHandler("green")
+
+    
+
+    </script>
+    <script></script>
+</html>
